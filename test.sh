@@ -28,12 +28,12 @@ check "empty title rejected" "$?" "1"
 # Test 3: completing a task
 setup
 ./todo.sh add "Learn CI" > /dev/null
-./todo.sh done 1 > /dev/null
+./todo.sh "done" 1 > /dev/null
 check "complete task" "$(cat "$TODO_FILE")" "[x] Learn CI"
 
 # Test 4: completing a missing task fails
 setup
-./todo.sh done 99 > /dev/null 2>&1
+./todo.sh "done" 99 > /dev/null 2>&1
 check "missing task rejected" "$?" "1"
 
 rm -f "$TODO_FILE"
