@@ -5,10 +5,6 @@ FILE="${TODO_FILE:-tasks.txt}"
 touch "$FILE"
 
 add_task() {
-  if [ -z "$1" ]; then
-    echo "Error: title cannot be empty" >&2
-    exit 1
-  fi
   echo "[ ] $1" >> "$FILE"
   echo "Added: $1"
 }
