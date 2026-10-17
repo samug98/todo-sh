@@ -18,7 +18,7 @@ check() {
 # Test 1: adding a task
 setup
 ./todo.sh add "Buy milk" > /dev/null
-check "add task" "$(cat $TODO_FILE)" "[ ] Buy milk"
+check "add task" "$(cat "$TODO_FILE")" "[ ] Buy milk"
 
 # Test 2: empty title is rejected
 setup
@@ -29,7 +29,7 @@ check "empty title rejected" "$?" "1"
 setup
 ./todo.sh add "Learn CI" > /dev/null
 ./todo.sh done 1 > /dev/null
-check "complete task" "$(cat $TODO_FILE)" "[x] Learn CI"
+check "complete task" "$(cat "$TODO_FILE")" "[x] Learn CI"
 
 # Test 4: completing a missing task fails
 setup
