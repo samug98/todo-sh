@@ -12,6 +12,9 @@ jobs:
       - name: Get the code
         uses: actions/checkout@v4
 
+      - name: Lint scripts with ShellCheck
+        run: shellcheck todo.sh test.sh
+
       - name: Make scripts runnable
         run: chmod +x todo.sh test.sh
 
